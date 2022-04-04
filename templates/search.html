@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='overall.css')}}" />
+    <script type="text/javascript" src="{{url_for('static',filename='changeitems.js')}}"></script>
+    <title>Blog</title>
+</head>
+<body>
+    <header class="global-header">
+        <ul class="title" id="myLinks">
+            {% for item in header_items %}
+            <li><a href={{item.url}}>[{{item.name}}]</a></li>
+            {% endfor %}
+        </ul>
+    </header>
+
+    <main class="container">
+        <div class="dns">
+            <table class="dns-table">
+                <tr class="dns-head">
+                    {% for item in dns_header %}
+                    <td>{{item}} </td>
+                    {% endfor %}
+                </tr>
+                {% for item in dns_dict %}
+                <tr class="dns-content">
+                    <td>{{item.date}}</td>
+                    <td>{{item.time}}</td>
+                    <td>{{item.usec}}</td>
+                    <td>{{item.sourceip}}</td>
+                    <td>{{item.sourceport}}</td>
+                    <td>{{item.destinationip}}</td>
+                    <td>{{item.destinationport}}</td>
+                    <td>{{item.fqdn}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </main>
+
+    <footer class="global-footer">
+        <div id="author">作者: Mr.Chu</div>
+        <div id="email">聯絡我: jerrt840622@gamil.com</div>
+        <div id="hint">備註: 此網頁任何無營利行為</div>
+    </footer>
+</body>
+</html>

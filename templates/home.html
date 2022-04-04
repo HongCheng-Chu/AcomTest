@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='overall.css')}}" />
+    <script type="text/javascript" src="{{url_for('static',filename='changeitems.js')}}"></script>
+    <title>Blog</title>
+</head>
+<body>
+    <header class="global-header">
+        <ul class="title" id="myLinks">
+            {% for item in header_items %}
+            <li><a href={{item.url}}>[{{item.name}}]</a></li>
+            {% endfor %}
+        </ul>
+    </header>
+
+    <main class="container">
+        <section class="search-from">
+            <form class='search' action="/" method="post">
+                <div class="form_section">
+                    <label class="form_label" for="sourceip">SourceIP:</label>
+                    <input class="form_control" id="sourceip" type="text" name="sourceip" />
+                </div>
+                <div class="form_section">
+                    <label class="form_label" for="time">Time:</label>
+                    <br>
+                    <label class="form_label" for="time">From</label>
+                    <input class="form_control" id="from-time" type="text" name="from-time" />
+                    <label class="form_label" for="time">to</label>
+                    <input class="form_control" id="to-time" type="text" name="to-time" />
+                </div>
+                <div class="form_section">
+                    <label class="form_label" for="fqdn">FQDN:</label>
+                    <input class="form_control" id="fqdn" type="text" name="fqdn" />
+                </div>
+                <div class="form_section">
+                    <button type="submit" class="form_confirm" formtarget="_blank">Comfirm</button>
+                </div>
+            </form>
+        </section>
+        <div class="dns">
+            <table class="dns-table">
+                <tr class="dns-head">
+                    {% for item in dns_header %}
+                    <td>{{item}} </td>
+                    {% endfor %}
+                </tr>
+                {% for item in dns_dict %}
+                <tr class="dns-content">
+                    <td>{{item.date}}</td>
+                    <td>{{item.time}}</td>
+                    <td>{{item.usec}}</td>
+                    <td>{{item.sourceip}}</td>
+                    <td>{{item.sourceport}}</td>
+                    <td>{{item.destinationip}}</td>
+                    <td>{{item.destinationport}}</td>
+                    <td>{{item.fqdn}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </main>
+    
+    <footer class="global-footer">
+        <div id="author">作者: Mr.Chu</div>
+        <div id="email">聯絡我: jerrt840622@gamil.com</div>
+        <div id="hint">備註: 此網頁任何無營利行為</div>
+    </footer>
+</body>
+</html>

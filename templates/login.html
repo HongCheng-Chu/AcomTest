@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='overall.css')}}" />
+    <script type="text/javascript" src="{{url_for('static',filename='changeitems.js')}}"></script>
+    <title>login</title>
+</head>
+<body>
+    <header class="global-header">
+        <ul class="title" id="myLinks">
+            {% for item in header_items %}
+            <li><a href={{item.url}}>[{{item.name}}]</a></li>
+            {% endfor %}
+        </ul>
+    </header>
+    <main class="login">
+        <section class="login_section">
+            <h1 class="login_title">Login</h1>
+            <p class="to_register">
+                Don't have an account?
+                <a href="/register">Register</a>
+            </p>
+            <p class="warning">
+                Oops! User is not exist.
+            </p>
+            <form class='login_form' action="/login" method="post">
+                <div class="form_section">
+                    <label class="form_label" for="user_id">Username:</label>
+                    <input class="form_control" id="account" type="text" name="username" />
+                </div>
+                <div class="form_section">
+                    <label class="form_label" for="password">Password:</label>
+                    <input class="form_control" id="password" type="text" name="password" />
+                </div>
+                <div class="form_section">
+                    <button type="submit" class="form_confirm">Comfirm</button>
+                </div>
+            </form>
+        </section>
+    </main> 
+    <footer class="global-footer">
+        <div id="author">作者: Mr.Chu</div>
+        <div id="email">聯絡我: jerrt840622@gamil.com</div>
+        <div id="hint">備註: 此網頁任何無營利行為</div>
+    </footer>
+</body>
+</html>

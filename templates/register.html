@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register</title>
+    <link type="text/css" rel="stylesheet" href="{{url_for('static',filename='overall.css')}}" />
+    <script type="text/javascript" src="{{url_for('static',filename='changeitems.js')}}"></script>
+</head>
+<body>
+    <header class="global-header">
+        <ul class="title" id="myLinks">
+            {% for item in header_items %}
+            <li><a href={{item.url}}>[{{item.name}}]</a></li>
+            {% endfor %}
+        </ul>
+    </header>
+    <main class="register">
+        <section class="register_section">
+            <h1 class="register_title">Register</h1>
+            <p class="to_login">
+                Do you have an account?
+                <a href="/login">Login</a>
+            </p>
+            {% if isUsed == false%}
+            <p class="warning">
+                Oops! User has been registered.
+            </p>
+            {% endif %}
+            <form class='register_form' action="/register" method="post">
+                <div class="form_section">
+                    <label class="form_label" for="email">Email:</label>
+                    <input class="form_control" id="email" type="text" name="email" />
+                </div>
+                <div class="form_section">
+                    <label class="form_label" for="username">Username:</label>
+                    <input class="form_control" id="account" type="text" name="username" />
+                </div>
+                <div class="form_section">
+                    <label class="form_label" for="password">Password:</label>
+                    <input class="form_control" id="password" type="text" name="password" />
+                </div>
+                <div class="form_section">
+                    <button type="submit" class="form_confirm">Comfirm</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer class="global-footer">
+        <div id="author">作者: Mr.Chu</div>
+        <div id="email">聯絡我: jerrt840622@gamil.com</div>
+        <div id="hint">備註: 此網頁任何無營利行為</div>
+    </footer>
+</body>
+</html>
