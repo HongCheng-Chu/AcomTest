@@ -108,7 +108,7 @@ def login():
         user = User()
         user.id = name
         login_user(user)
-        return redirect(url_for('actress')) # redirect: 填入def函式名稱
+        return redirect(url_for('home')) # redirect: 填入def函式名稱
 
     return render_template('login.html', header_items = header_items, userbox = userbox)
 
@@ -116,7 +116,7 @@ def login():
 @app.route('/logout', methods=['POST','GET'])
 def logout():
     logout_user()
-    return redirect(url_for('actress'))
+    return redirect(url_for('home'))
 
 
 @app.route('/register', methods=['POST','GET'])

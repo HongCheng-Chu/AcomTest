@@ -180,6 +180,21 @@ class acomManager(object):
         return dns_dict
 
 
+    def _create_login_db(self):
+
+        conn = pymysql.connect(host='localhost',
+                               user='root',
+                               password= self.sqlpassword)
+
+        cursor = conn.cursor()
+
+        sql = "create database if not exists {}".format(self.logindb)
+
+        cursor.execute(sql)
+
+        conn.close()
+
+
     def get(self, username):
         
         try:
@@ -210,6 +225,8 @@ class acomManager(object):
 
 
     def push(self, email, username, password):
+
+        manager._create_login_db()
 
         try:
             conn = pymysql.connect(host= 'localhost',
