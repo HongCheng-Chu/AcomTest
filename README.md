@@ -1,7 +1,18 @@
 # AcomTest
-Linux上讀取資料，Window上開發
+Linux上讀取資料，Window上開發  
+都是以python做開發，沒有用到javascript，我對javascript沒有很熟練
 
-## 網頁功能
+## 網頁  
+
+### 主程式:   
+分為五種路由
+- home: 首頁，顯示DNS數據
+- search: 顯示搜尋結果
+- login: 登入
+- logout: 登出
+- register: 註冊
+
+### 副程式:  
 sqlbox.py 內有 class acomManager, acomManager 包含以下幾種 func :  
 - _readCsv: 讀取 csv 檔案並轉換成 json  
 - _create_db: 建立資料庫  
@@ -13,9 +24,9 @@ sqlbox.py 內有 class acomManager, acomManager 包含以下幾種 func :
 - check: 檢查燈速帳密是否正確  
 
 ## Q1. csv檔案放入資料庫
-在 import_db func 內  
-import_db 流程:  
-_create_db -> readCsv -> MySQL
+ -在 import_db func 內  
+- import_db 流程:  
+  _create_db -> readCsv -> MySQL
 
 ## Q2. 網頁實作
 
