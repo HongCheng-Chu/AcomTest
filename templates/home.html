@@ -13,7 +13,11 @@
     <header class="global-header">
         <ul class="title" id="myLinks">
             {% for item in header_items %}
+            {% if item.name == 'Login' and current_user.is_authenticated %}
+            <li><a href="../logout">[Logout]</a></li>
+            {% else %}
             <li><a href={{item.url}}>[{{item.name}}]</a></li>
+            {% endif %}
             {% endfor %}
         </ul>
     </header>
